@@ -14,13 +14,13 @@ Access client via `http://localhost:8080`
 ##  User Routes
 |Routes|HTTP|Header(s)|Body|Response|Description|
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|/users/signUp  |POST  |none|email: String (**required**),  password: String (**required**)|**Success**: Register a user, **Error**: Internal server error (Validation)|Register a user|
+|/users/signUp  |POST  |none|first_name: String(**required**), last_name: String (**required**), email: String (**required**),  password: String (**required**)|**Success**: Register a user, **Error**: Internal server error (Validation)|Register a user|
 |/users/signIn  |POST  |none|email: String (**required**), password: String (**required**) |**Success**: Login as a user, **Error**: Internal server error (Validation)|Login as a user|
-|/questions  |POST  |token|title: String (**required**), description: String (**required**), UserId: String (**required**) |**Success**: Publish a question, **Error**: Internal server error (Validation)|Publish a question|
 
 ## Question Routes
 |Routes|HTTP|Header(s)|Body|Response|Description|
 |:--:|:--:|:--:|:--:|:--:|:--:|
+|/questions  |POST  |token|title: String (**required**), description: String (**required**), UserId: String (**required**) |**Success**: Publish a question, **Error**: Internal server error (Validation)|Publish a question|
 |/questions  |GET  |token|none|**Success**: Get all questions, **Error**: Internal server error (Validation)|Get all questions|
 |/questions/myQuestions  |GET  |token|none|**Success**: Get logged in user's questions, **Error**: Internal server error (Validation)|Get logged in user's questions|
 |/questions/:QuestionId  |GET  |token|none|**Success**: Get a logged in user's question, **Error**: Internal server error (Validation)|Get logged in user's question|
