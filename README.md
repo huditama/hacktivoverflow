@@ -1,7 +1,12 @@
 ## Usage
 ```javascript
+// SERVER SIDE
 $ npm install
 $ node app.js
+
+// CLIENT SIDE
+$ npm install
+$ npm run serve
 ```
 Access server via `http://localhost:3000`<br>
 Access client via `http://localhost:8080`
