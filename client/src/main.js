@@ -9,7 +9,7 @@ import axios from "axios"
 import CKEditor from '@ckeditor/ckeditor5-vue';
 
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'http://hacktivoverflow.reyhanhuditama.com';
 Vue.prototype.$axios = axios;
 
 Vue.use(VueSwal);
