@@ -3,14 +3,14 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
-const port = 3000
+const port = 3000 || process.env.PORT
 const routes = require('./routes')
 const CronJob = require('cron').CronJob;
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
 const axios = require('axios')
 
-mongoose.connect('mongodb://localhost/hacktivoverflow', { useNewUrlParser: true })
+mongoose.connect(`mongodb+srv://${process.env.ATLAS_USERNAME}:${process.env.ATLAS_PASSWORD}@${process.env.ATLAS_CLUSTER}/test?retryWrites=true`, { useNewUrlParser: true })
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors())
@@ -25,8 +25,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// new CronJob('0 0 0 * * *', function () {
-new CronJob('*/10 * * * * *', function () {
+new CronJob('0 0 0 * * *', function () {
     axios
         .get(`https://jobs.github.com/positions.json?search=javascript&page=${getRandomInt(0, 3)}`)
         .then(({ data }) => {
